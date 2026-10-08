@@ -1,0 +1,12 @@
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    user_id INT UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    nim VARCHAR(12) UNIQUE NOT NULL,
+    nama VARCHAR(100) NOT NULL,
+    prodi VARCHAR(100) NOT NULL,
+    angkatan INT NOT NULL,
+    ipk_terakhir NUMERIC(3,2) DEFAULT 0.00,
+    deleted_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
